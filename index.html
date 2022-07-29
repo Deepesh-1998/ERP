@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="box">
+        <img src="1.jpg" alt="" width="100%" height="100%" class="imgBox">
+    </div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <script>
+        
+        let box = document.getElementsByClassName("box")
+        let imgBox = document.querySelector('.imgBox')
+        imgBox.addEventListener('dragstart', (e) => {
+            setTimeout(() => {
+                e.target.className = 'hide'
+            }, 0);
+            console.log("dragStart is triggered")
+        })
+        imgBox.addEventListener('dragend', (e) => {
+            console.log("dragEnd is triggered")
+            e.target.className = 'hide1'
+        })
+        for (let eachBox of box) {
+            eachBox.addEventListener('dragenter', (e) => {
+                e.preventDefault()
+                console.log('dragEnter is triggered')
+            })
+            eachBox.addEventListener('dragover', (e) => {
+                console.log(e.target)
+                e.target.append(imgBox)
+                console.log('dragOver is triggered')
+            })
+            eachBox.addEventListener('dragleave', () => {
+                console.log('dragLeave is triggered')
+            })
+            eachBox.addEventListener('drop', () => {
+                console.log('drop is triggered')
+            })
+        }
+    </script>
+</body>
+
+</html>

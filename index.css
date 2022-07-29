@@ -1,0 +1,10 @@
+.box{
+    display: inline-block;
+    width: 204px;
+    height: 204px;
+    border: 1px solid royalblue;
+}
+.hide{
+    opacity: 50%;
+    border: 2px solid red;
+}
